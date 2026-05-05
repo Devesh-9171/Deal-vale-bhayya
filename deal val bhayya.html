@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deal Wale Bhayya – Best Deals Har Din!</title>
+  <meta name="description" content="India ke sabse bade deal channel se judo! Exclusive offers, lightning deals, aur cashback – sirf aapke liye. Abhi WhatsApp Channel join karo!" />
+  <meta property="og:title" content="Deal Wale Bhayya 🔥" />
+  <meta property="og:description" content="Har din best deals, coupons aur offers seedhe WhatsApp pe. Join karo abhi!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --green: #25D366;
+      --green-dark: #128C7E;
+      --green-light: #DCF8C6;
+      --fire: #FF4500;
+      --gold: #FFD700;
+      --gold2: #FFA500;
+      --bg: #0a0f0d;
+      --bg2: #0f1a12;
+      --text: #f0fff4;
+      --text2: #a8d5b0;
+      --card: rgba(37, 211, 102, 0.07);
+      --border: rgba(37, 211, 102, 0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Baloo 2', cursive;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* Custom cursor */
+    #cursor {
+      width: 18px; height: 18px;
+      background: var(--green);
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width .2s, height .2s, background .2s;
+      mix-blend-mode: screen;
+    }
+    #cursor-trail {
+      width: 40px; height: 40px;
+      border: 2px solid rgba(37,211,102,0.4);
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: all .08s ease;
+    }
+
+    /* Background pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 10%, rgba(37,211,102,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 90% 80%, rgba(255,69,0,0.08) 0%, transparent 60%),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 40px,
+          rgba(37,211,102,0.02) 40px,
+          rgba(37,211,102,0.02) 41px
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 14px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(16px);
+      background: rgba(10,15,13,0.7);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--green);
+      text-decoration: none;
+    }
+    .logo svg { width: 32px; height: 32px; }
+    .header-cta {
+      background: var(--green);
+      color: #000;
+      font-family: 'Baloo 2', cursive;
+      font-weight: 800;
+      font-size: .88rem;
+      padding: 10px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 0 18px rgba(37,211,102,0.4);
+    }
+    .header-cta:hover { transform: scale(1.06); box-shadow: 0 0 30px rgba(37,211,102,0.7); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 5% 80px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,69,0,0.15);
+      border: 1px solid rgba(255,69,0,0.4);
+      color: var(--gold2);
+      font-size: .82rem;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      animation: pulse-badge 2s infinite;
+    }
+    @keyframes pulse-badge {
+      0%,100% { box-shadow: 0 0 0 0 rgba(255,69,0,0.3); }
+      50% { box-shadow: 0 0 0 8px rgba(255,69,0,0); }
+    }
+    .badge::before { content: '🔥'; font-size: 1rem; }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 10px;
+      letter-spacing: -1px;
+    }
+    .hero h1 span.green { color: var(--green); }
+    .hero h1 span.fire {
+      background: linear-gradient(135deg, #FF4500, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: var(--text2);
+      max-width: 540px;
+      margin: 18px auto 44px;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .cta-wrap {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
+
+    .btn-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--green);
+      color: #000;
+      font-family: 'Baloo 2', cursive;
+      font-weight: 900;
+      font-size: 1.15rem;
+      padding: 18px 42px;
+      border-radius: 60px;
+      text-decoration: none;
+      box-shadow: 0 8px 40px rgba(37,211,102,0.5), 0 0 0 0 rgba(37,211,102,0.4);
+      transition: transform .2s, box-shadow .2s;
+      animation: glow-pulse 2.5s infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-main::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+      border-radius: inherit;
+    }
+    @keyframes glow-pulse {
+      0%,100% { box-shadow: 0 8px 40px rgba(37,211,102,0.5), 0 0 0 0 rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 8px 60px rgba(37,211,102,0.7), 0 0 0 14px rgba(37,211,102,0); }
+    }
+    .btn-main:hover { transform: translateY(-4px) scale(1.04); }
+
+    .btn-main .wa-icon { width: 28px; height: 28px; }
+
+    .btn-sec {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--green);
+      font-family: 'Baloo 2', cursive;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 18px 36px;
+      border-radius: 60px;
+      text-decoration: none;
+      border: 2px solid var(--border);
+      transition: border-color .2s, background .2s;
+    }
+    .btn-sec:hover { border-color: var(--green); background: rgba(37,211,102,0.08); }
+
+    /* Live counter */
+    .live-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .92rem;
+      color: var(--text2);
+      font-weight: 600;
+    }
+    .live-dot {
+      width: 10px; height: 10px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: blink 1.2s infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .4; transform: scale(.7); }
+    }
+    #member-count { color: var(--green); font-weight: 900; font-size: 1.1rem; }
+
+    /* ── FEATURES ── */
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: 90px 5%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .section-title span { color: var(--green); }
+    .section-sub {
+      text-align: center;
+      color: var(--text2);
+      font-size: 1rem;
+      margin-bottom: 56px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: -40%; left: -40%;
+      width: 180%; height: 180%;
+      background: radial-gradient(circle, rgba(37,211,102,0.06) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity .4s;
+    }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(37,211,102,0.15); border-color: rgba(37,211,102,0.4); }
+
+    .feat-icon {
+      font-size: 3rem;
+      margin-bottom: 18px;
+      display: block;
+      animation: float 3s ease-in-out infinite;
+    }
+    .feature-card:nth-child(2) .feat-icon { animation-delay: .5s; }
+    .feature-card:nth-child(3) .feat-icon { animation-delay: 1s; }
+    .feature-card:nth-child(4) .feat-icon { animation-delay: 1.5s; }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .feat-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
+    .feat-desc { color: var(--text2); font-size: .93rem; line-height: 1.6; font-weight: 400; }
+
+    /* ── DEAL TICKER ── */
+    .ticker-wrap {
+      overflow: hidden;
+      background: rgba(37,211,102,0.06);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .ticker-label {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      display: flex;
+      align-items: center;
+      padding: 0 22px;
+      background: var(--green);
+      color: #000;
+      font-weight: 900;
+      font-size: .82rem;
+      letter-spacing: .08em;
+      z-index: 2;
+    }
+    .ticker-track {
+      display: flex;
+      gap: 60px;
+      animation: ticker 22s linear infinite;
+      white-space: nowrap;
+      padding-left: 220px;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--text2);
+    }
+    .ticker-item .price-off { color: var(--fire); font-weight: 900; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .testi-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 26px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s;
+    }
+    .testi-card:hover { transform: translateY(-5px); }
+    .testi-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px; left: 16px;
+      font-size: 7rem;
+      color: rgba(37,211,102,0.1);
+      font-family: Georgia, serif;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .stars { color: var(--gold); margin-bottom: 12px; font-size: 1.1rem; letter-spacing: 2px; }
+    .testi-text { font-size: .97rem; line-height: 1.65; color: var(--text2); margin-bottom: 20px; font-weight: 400; }
+    .testi-user { display: flex; align-items: center; gap: 12px; }
+    .avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 1.1rem; color: #000;
+      flex-shrink: 0;
+    }
+    .user-name { font-weight: 700; font-size: .95rem; }
+    .user-loc { font-size: .8rem; color: var(--text2); }
+
+    /* ── HOW IT WORKS ── */
+    .steps {
+      display: flex;
+      gap: 0;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 36px; left: 12%; right: 12%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--green), var(--green), transparent);
+      opacity: .3;
+    }
+    .step {
+      flex: 1;
+      min-width: 180px;
+      text-align: center;
+      padding: 20px 16px;
+    }
+    .step-num {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-dark), var(--green));
+      color: #000;
+      font-size: 1.6rem;
+      font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 0 30px rgba(37,211,102,0.35);
+      transition: transform .3s;
+    }
+    .step:hover .step-num { transform: scale(1.15) rotate(10deg); }
+    .step-title { font-weight: 800; font-size: 1.05rem; margin-bottom: 8px; }
+    .step-desc { font-size: .88rem; color: var(--text2); line-height: 1.55; font-weight: 400; }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      text-align: center;
+      padding: 100px 5% 120px;
+      position: relative;
+      z-index: 1;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(37,211,102,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .final-cta h2 {
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      margin-bottom: 18px;
+      line-height: 1.1;
+    }
+    .final-cta p {
+      font-size: 1.1rem;
+      color: var(--text2);
+      max-width: 480px;
+      margin: 0 auto 48px;
+      line-height: 1.65;
+    }
+
+    /* Floating particles */
+    .particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      animation: rise linear infinite;
+      opacity: 0;
+    }
+    @keyframes rise {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      10% { opacity: .6; }
+      90% { opacity: .2; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 30px 5%;
+      text-align: center;
+      color: var(--text2);
+      font-size: .85rem;
+    }
+    footer a { color: var(--green); text-decoration: none; }
+
+    /* ── ANIMATIONS (entrance) ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .steps::before { display: none; }
+      .btn-main { font-size: 1rem; padding: 16px 30px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+
+<!-- Floating particles -->
+<div class="particles" id="particles"></div>
+
+<!-- ── HEADER ── -->
+<header>
+  <a class="logo" href="#">
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="24" fill="#25D366"/>
+      <path d="M35.5 12.5C32.5 9.5 28.4 7.5 24 7.5C14.9 7.5 7.5 14.9 7.5 24C7.5 27.1 8.4 30.1 9.9 32.7L7.5 40.5L15.6 38.2C18.1 39.6 20.9 40.5 24 40.5C33.1 40.5 40.5 33.1 40.5 24C40.5 19.6 38.5 15.5 35.5 12.5ZM24 37.8C21.1 37.8 18.4 37 16.1 35.6L15.5 35.2L10.8 36.5L12.1 31.9L11.7 31.3C10.2 28.9 9.3 26.1 9.3 24C9.3 15.9 15.9 9.3 24 9.3C27.9 9.3 31.6 10.8 34.4 13.6C37.2 16.4 38.7 20.1 38.7 24C38.7 32.1 32.1 37.8 24 37.8ZM31.9 27.5C31.5 27.3 29.5 26.3 29.1 26.2C28.7 26 28.4 26 28.2 26.4C27.9 26.8 27.2 27.7 26.9 28C26.7 28.3 26.4 28.3 26 28.1C24.1 27.2 22.8 26.4 21.5 24.4C21.2 23.9 21.8 23.9 22.3 22.9C22.4 22.7 22.4 22.4 22.3 22.2C22.2 22 21.5 20 21.2 19.2C20.9 18.4 20.6 18.5 20.3 18.5C20.1 18.5 19.8 18.5 19.5 18.5C19.2 18.5 18.8 18.6 18.4 19C18 19.4 17 20.4 17 22.4C17 24.4 18.4 26.3 18.6 26.6C18.8 26.9 21.5 31 25.6 32.7C28.3 33.9 29.4 34 30.8 33.8C31.6 33.7 33.3 32.8 33.7 31.8C34.1 30.8 34.1 29.9 34 29.7C33.8 29.5 33.5 29.4 31.9 27.5Z" fill="white"/>
+    </svg>
+    Deal Wale Bhayya
+  </a>
+  <a href="https://whatsapp.com/channel/0029VbBw2Oe9xVJWnzxUyc2W" target="_blank" class="header-cta">🔔 Join Now</a>
+</header>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="badge">India Ka #1 Deal Channel</div>
+
+  <h1>
+    <span class="fire">Bachaao Paisa,</span><br>
+    <span class="green">Paao Best Deals!</span>
+  </h1>
+
+  <p class="hero-sub">
+    Har din ke best offers, lightning deals, cashback, aur exclusive coupons — seedhe aapke WhatsApp pe. Miss mat karo! 💸
+  </p>
+
+  <div class="cta-wrap">
+    <a href="https://whatsapp.com/channel/0029VbBw2Oe9xVJWnzxUyc2W" target="_blank" class="btn-main">
+      <svg class="wa-icon" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="white"/><path d="M35.5 12.5C32.5 9.5 28.4 7.5 24 7.5C14.9 7.5 7.5 14.9 7.5 24C7.5 27.1 8.4 30.1 9.9 32.7L7.5 40.5L15.6 38.2C18.1 39.6 20.9 40.5 24 40.5C33.1 40.5 40.5 33.1 40.5 24C40.5 19.6 38.5 15.5 35.5 12.5ZM24 37.8C21.1 37.8 18.4 37 16.1 35.6L15.5 35.2L10.8 36.5L12.1 31.9L11.7 31.3C10.2 28.9 9.3 26.1 9.3 24C9.3 15.9 15.9 9.3 24 9.3C27.9 9.3 31.6 10.8 34.4 13.6C37.2 16.4 38.7 20.1 38.7 24C38.7 32.1 32.1 37.8 24 37.8Z" fill="#25D366"/></svg>
+      Abhi Channel Join Karo
+    </a>
+  </div>
+
+  <div class="live-bar">
+    <div class="live-dot"></div>
+    <span><span id="member-count">12,847</span> log abhi channel mein hain</span>
+  </div>
+</section>
+
+<!-- ── DEAL TICKER ── -->
+<div class="ticker-wrap">
+  <div class="ticker-label">🔥 LIVE DEALS</div>
+  <div class="ticker-track" id="ticker">
+    <span class="ticker-item">📱 iPhone 15 <span class="price-off">₹8,000 OFF</span></span>
+    <span class="ticker-item">🎧 Boat Earbuds <span class="price-off">70% OFF</span></span>
+    <span class="ticker-item">👟 Nike Sneakers <span class="price-off">₹2,500 OFF</span></span>
+    <span class="ticker-item">🛒 Amazon Sale — Extra 15% Cashback</span>
+    <span class="ticker-item">🍕 Zomato Gold <span class="price-off">Free 3 Months</span></span>
+    <span class="ticker-item">💻 Laptop <span class="price-off">₹15,000 Off</span></span>
+    <span class="ticker-item">📺 55" Smart TV <span class="price-off">₹20,000 OFF</span></span>
+    <span class="ticker-item">✈️ Flight Tickets <span class="price-off">Up to 40% OFF</span></span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item">📱 iPhone 15 <span class="price-off">₹8,000 OFF</span></span>
+    <span class="ticker-item">🎧 Boat Earbuds <span class="price-off">70% OFF</span></span>
+    <span class="ticker-item">👟 Nike Sneakers <span class="price-off">₹2,500 OFF</span></span>
+    <span class="ticker-item">🛒 Amazon Sale — Extra 15% Cashback</span>
+    <span class="ticker-item">🍕 Zomato Gold <span class="price-off">Free 3 Months</span></span>
+    <span class="ticker-item">💻 Laptop <span class="price-off">₹15,000 Off</span></span>
+    <span class="ticker-item">📺 55" Smart TV <span class="price-off">₹20,000 OFF</span></span>
+    <span class="ticker-item">✈️ Flight Tickets <span class="price-off">Up to 40% OFF</span></span>
+  </div>
+</div>
+
+<!-- ── FEATURES ── -->
+<section class="section">
+  <h2 class="section-title reveal">Kyun Join Karein <span>Deal Wale Bhayya?</span></h2>
+  <p class="section-sub reveal">India ke most trusted deal channel ke saath smart shopping start karo</p>
+
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <span class="feat-icon">⚡</span>
+      <div class="feat-title">Lightning Fast Deals</div>
+      <div class="feat-desc">Flash sales aur limited-time offers sabse pehle milenge — kabhi koi deal miss mat karo</div>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feat-icon">💰</span>
+      <div class="feat-title">Max Cashback</div>
+      <div class="feat-desc">Amazon, Flipkart, Meesho, Myntra — sab jagah extra cashback codes sirf members ke liye</div>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feat-icon">🎯</span>
+      <div class="feat-title">Verified Deals Only</div>
+      <div class="feat-desc">Har deal manually verify hoti hai. Koi fake offer nahi, koi time waste nahi</div>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feat-icon">📲</span>
+      <div class="feat-title">WhatsApp Pe Direct</div>
+      <div class="feat-desc">App download karne ki zaroorat nahi — seedha WhatsApp pe best deals milein</div>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feat-icon">🛡️</span>
+      <div class="feat-title">100% Free Forever</div>
+      <div class="feat-desc">Koi subscription, koi hidden charges — bilkul free, hamesha ke liye</div>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feat-icon">🏆</span>
+      <div class="feat-title">Exclusive Coupons</div>
+      <div class="feat-desc">Special promo codes jo sirf Deal Wale Bhayya subscribers ko milte hain</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="section" style="padding-top: 0;">
+  <h2 class="section-title reveal">Sirf <span>3 Steps</span> Mein Start Karo</h2>
+  <p class="section-sub reveal">Ek minute mein set up ho jao</p>
+
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-num">1</div>
+      <div class="step-title">Button Dabaao</div>
+      <div class="step-desc">Neeche "Join Channel" button click karo</div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">2</div>
+      <div class="step-title">WhatsApp Khuley</div>
+      <div class="step-desc">Automatically WhatsApp mein channel open hoga</div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">3</div>
+      <div class="step-title">Deals Paao!</div>
+      <div class="step-desc">Har roz best deals seedhe notification mein</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="section" style="padding-top: 20px;">
+  <h2 class="section-title reveal">Logon Ne <span>Kya Kaha?</span></h2>
+  <p class="section-sub reveal">Real members ki real savings</p>
+
+  <div class="testimonials">
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">Bhai pichle mahine mein sirf isi channel se ₹4,200 bachaye! Ghar ka saman, kapde, electronics — sab pe deals mili.</p>
+      <div class="testi-user">
+        <div class="avatar">R</div>
+        <div>
+          <div class="user-name">Rahul Sharma</div>
+          <div class="user-loc">Delhi 📍</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">Maine mobile ₹6,000 saste mein liya yahan se deal dekh ke. Meri poori family ko join karaya. Must follow channel hai!</p>
+      <div class="testi-user">
+        <div class="avatar">P</div>
+        <div>
+          <div class="user-name">Priya Gupta</div>
+          <div class="user-loc">Mumbai 📍</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">Roz subah ek deal aati hai jo genuinely useful hoti hai. Time waste nahi karta ye channel. Best decision tha join karna!</p>
+      <div class="testi-user">
+        <div class="avatar">A</div>
+        <div>
+          <div class="user-name">Amit Verma</div>
+          <div class="user-loc">Lucknow 📍</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="final-cta">
+  <h2 class="reveal">
+    Ab aur wait mat karo — <br>
+    <span style="color: var(--green)">Paise bachana start karo!</span>
+  </h2>
+  <p class="reveal">
+    Har din hazaron log naye deals se savings kar rahe hain. Abhi join karo aur in miss-out hone se bacho! 🔥
+  </p>
+  <a href="https://whatsapp.com/channel/0029VbBw2Oe9xVJWnzxUyc2W" target="_blank" class="btn-main reveal" style="display:inline-flex; font-size:1.2rem; padding: 22px 54px;">
+    <svg class="wa-icon" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="white"/><path d="M35.5 12.5C32.5 9.5 28.4 7.5 24 7.5C14.9 7.5 7.5 14.9 7.5 24C7.5 27.1 8.4 30.1 9.9 32.7L7.5 40.5L15.6 38.2C18.1 39.6 20.9 40.5 24 40.5C33.1 40.5 40.5 33.1 40.5 24C40.5 19.6 38.5 15.5 35.5 12.5Z" fill="#25D366"/></svg>
+    Free Mein Join Karo &nbsp;→
+  </a>
+  <p style="margin-top: 22px; font-size: .85rem; color: var(--text2);">✅ Bilkul Free &nbsp;|&nbsp; ✅ Koi Spam Nahi &nbsp;|&nbsp; ✅ Kabhi Bhi Unfollow Karo</p>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>© 2025 <a href="https://whatsapp.com/channel/0029VbBw2Oe9xVJWnzxUyc2W" target="_blank">Deal Wale Bhayya</a> · Sabse saste, sabse best! 🇮🇳</p>
+</footer>
+
+<script>
+  // Custom cursor
+  const cur = document.getElementById('cursor');
+  const trail = document.getElementById('cursor-trail');
+  let mx = 0, my = 0, tx = 0, ty = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx+'px'; cur.style.top = my+'px'; });
+  function animTrail() { tx += (mx-tx)*.12; ty += (my-ty)*.12; trail.style.left=tx+'px'; trail.style.top=ty+'px'; requestAnimationFrame(animTrail); }
+  animTrail();
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => { cur.style.width='28px'; cur.style.height='28px'; });
+    el.addEventListener('mouseleave', () => { cur.style.width='18px'; cur.style.height='18px'; });
+  });
+
+  // Floating particles
+  const pc = document.getElementById('particles');
+  const colors = ['#25D366','#128C7E','#FFD700','#FF4500','#4ade80'];
+  for(let i=0; i<28; i++){
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    const sz = Math.random()*6+3;
+    p.style.cssText = `
+      width:${sz}px; height:${sz}px;
+      left:${Math.random()*100}%;
+      background: ${colors[Math.floor(Math.random()*colors.length)]};
+      animation-duration: ${Math.random()*12+8}s;
+      animation-delay: ${Math.random()*10}s;
+    `;
+    pc.appendChild(p);
+  }
+
+  // Live counter animation
+  const el = document.getElementById('member-count');
+  let count = 12847;
+  setInterval(() => {
+    count += Math.floor(Math.random()*3);
+    el.textContent = count.toLocaleString('en-IN');
+  }, 3200);
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if(entry.isIntersecting){
+        setTimeout(() => entry.target.classList.add('visible'), i*80);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => obs.observe(el));
+
+  // Hero elements instant reveal
+  document.querySelectorAll('.hero .reveal, .hero .badge, .hero h1, .hero-sub, .cta-wrap, .live-bar').forEach(el => {
+    el.classList.add('visible');
+  });
+</script>
+</body>
+</html>
